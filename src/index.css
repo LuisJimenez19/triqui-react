@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --blue-dark: #051e27;
+  --blue-dark-900: #263544;
+  --violet: #747796;
+  --bg-ligth: #beb6d9;
+  --ligth: #e7d9e7;
+}
+
+html.dark .body {
+  background: linear-gradient(
+      180deg,
+      hsla(0, 0%, 0%, 0.174),
+      hsla(0, 0%, 0%, 0.578)
+    ),
+    url("./img/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+}
+.body {
+  background-image: unset;
+
+  /* background: linear-gradient(180deg, hsla(0, 0%, 0%, 0.174), hsla(0, 0%, 0%, 0.578)),
+    url("./img/bg.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: border-box; */
+}
+
+/* Configuración para el modo oscuro */
+.container-switch {
+  width: 45px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+  background-color: #2f2a2a;
+}
+
+.container-switch .switch {
+  position: absolute;
+  display: inline-block;
+  width: 22px;
+  bottom: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.container-switch .switch.switch--light {
+  transform: translate(-11px);
+  background-color: #949191;
+}
+
+.container-switch .switch.switch--dark {
+  background-color: #f2f2f2;
+  transform: translate(10px);
+}
+
+/* board */
+.board {
+  display: grid;
+  width: 80%;
+  margin: 50px auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  min-height: 40vh;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Cell */
+.cell {
+  outline: 1px solid rgba(0, 0, 0, 0.306);
+  outline-offset: -5px;
+  padding: 5px;
+  transition: 0.2s;
+  backdrop-filter: blur(1px);
+}
+
+html.dark .cell:hover {
+  filter: brightness(1.2) blur(0.5px);
+}
+html.dark .cell {
+  background-color: #86073ac0;
+}
+
+.cell:hover {
+  cursor: pointer;
+  /* Parece que se sobre sale */
+  /* filter: brightness(1.2) drop-shadow(0 0 30px black) blur(.5px); */
+  filter: brightness(1.3) blur(0.5px);
+}
+.-outline-offset {
+  outline: 1px solid rgba(0, 0, 0, 0.306);
+  outline-offset: -5px;
+}
+
+/* modal */
+.modal {
+  backdrop-filter: blur(5px);
+  display: grid;
+  place-content: center;
+  gap: 50px;
+}
